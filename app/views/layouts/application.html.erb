@@ -9,11 +9,15 @@
 <body>
 <p><%= link_to "/", root_path %></p>
 <% if signed_in? %>
-  <%= button_to "Sign out", :session, method: :delete %>
+  <div>
+    Signed in as -> <%= current_user.email %>
+    <%= button_to "Sign out", :session, method: :delete %>
+  </div>
 <% else %>
   <%= link_to "Sign up", [:new, :user] %>
   <%= link_to "Sign in", root_path %>
 <% end %>
+
 
 <%= yield %>
 

@@ -1,3 +1,10 @@
 <p> <%= @user.email %> </p>
+<% if !current_user.followed_users.include?(@user) %>
+  <%= button_to "Follow #{@user.email}", [@user, :following_relationship] %>
+<% else %>
+  <%= button_to "UNFOLLOW #{@user.email}", [@user, :following_relationship], method: :delete %>
+<% end %>
+
 <h3> Shouts </h3>
+
 <%= render @shouts %>
