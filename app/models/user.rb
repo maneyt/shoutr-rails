@@ -13,7 +13,21 @@ class User < ActiveRecord::Base
     followed_users << other_user
   end
 
+  def following?(other_user)
+    followed_users.include?(other_user)
+  end
+
   def unfollow(other_user)
     followed_users.destroy(other_user)
+  end
+
+  def followed_shouts
+    shouts = []
+    followed_users.each do |user|
+      user.shouts.each do |shout|
+        shouts << shout
+      end
+    end
+    shouts
   end
 end

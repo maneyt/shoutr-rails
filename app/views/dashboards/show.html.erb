@@ -1,9 +1,9 @@
 <h1> Shoutr </h1>
 <%= link_to current_user.email, current_user %>
+<%= link_to "Followed users", :following %>
 
 <%= form_for @shout do |form| %>
   <%= form.text_area :body %>
   <%= form.submit "Shout" %>
 <% end %>
 
-<h3> Shouts </h3>
