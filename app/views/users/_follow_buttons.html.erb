@@ -1,0 +1,7 @@
+<% if current_user != user %>
+  <% if !current_user.following?(user) %>
+    <%= button_to "Follow #{user.email}", [user, :following_relationship] %>
+  <% else %>
+    <%= button_to "UNFOLLOW #{user.email}", [user, :following_relationship], method: :delete %>
+  <% end %>
+<% end %>

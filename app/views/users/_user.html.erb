@@ -1,1 +1,5 @@
-<li> <%= link_to user.email, user %> </li>
+<li>
+  <%= link_to user.email, user %>
+  <%= render "users/follow_buttons", user: user %>
+</li>
+
