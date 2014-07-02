@@ -7,9 +7,15 @@
 
 <div>
 <%= form_for @shout do |form| %>
-  <%= form.text_area :subject %>
+  <%= form.text_area :subject, placeholder: "compose new shout..."%>
   <%= form.submit "Shout" %>
 <% end %>
+
+<%= form_for @image_subject do |form| %>
+  <%= form.text_field :url, placeholder: "image URL" %>
+  <%= form.submit "Shout image" %>
+<% end %>
+
 </div>
 
 <h4> Timeline </h4>

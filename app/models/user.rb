@@ -32,6 +32,6 @@ class User < ActiveRecord::Base
         shouts << shout
       end
     end
-    shouts
+    shouts.sort_by {|shout| shout.created_at }
   end
 end
