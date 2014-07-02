@@ -1,4 +1,4 @@
 <li>
-  <p><%= shout.body %> </p>
-  <p> <%= link_to shout.user.email, shout.user%> </p>
+  <%= render shout.subject %>
+  <p> <%= link_to shout.user.email, shout.user%> > <span style="font-size: .75em">Shouted <%= time_ago_in_words(shout.created_at) %> ago</span></p>
 </li>

@@ -1,4 +1,4 @@
-<h1> Shoutr </h1>
+<h1> Shoutr</h1>
 <%= link_to current_user.email, current_user %>
 <ul>
   <li><%= link_to "Followed users", :following %>: <%= current_user.followed_users.count %></li>
@@ -7,7 +7,12 @@
 
 <div>
 <%= form_for @shout do |form| %>
-  <%= form.text_area :body %>
+  <%= form.text_area :subject %>
   <%= form.submit "Shout" %>
 <% end %>
 </div>
+
+<h4> Timeline </h4>
+<ul>
+  <%= render current_user.followed_shouts.reverse  %>
+</ul>

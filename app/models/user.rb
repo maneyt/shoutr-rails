@@ -25,7 +25,6 @@ class User < ActiveRecord::Base
     followed_users.destroy(other_user)
   end
 
-  #for rough timeline on dashboard
   def followed_shouts
     shouts = []
     followed_users.each do |user|
