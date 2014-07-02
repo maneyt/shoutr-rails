@@ -1,6 +1,6 @@
 class ShoutsController < ApplicationController
   def create
-    text_subject = TextSubject.create(body: shout_params[:subject])
+    text_subject = TextSubject.create(body: shout_params[:subject].upcase)
     current_user.shouts.create(subject: text_subject)
     
     redirect_to :dashboard

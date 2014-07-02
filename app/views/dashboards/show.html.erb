@@ -1,5 +1,11 @@
 <h1> Shoutr</h1>
 <%= link_to current_user.email, current_user %>
+<div>
+  <%= form_tag("/search", method: "get") do %>
+    <%= text_field_tag(:query, "", placeholder: "Search users...") %>
+    <%= submit_tag("Search") %>
+  <% end %>
+</div>
 <ul>
   <li><%= link_to "Followed users", :following %>: <%= current_user.followed_users.count %></li>
   <li><%= link_to "Followers", :followers %>: <%= current_user.followers.count %></li>
@@ -15,10 +21,9 @@
   <%= form.text_field :url, placeholder: "image URL" %>
   <%= form.submit "Shout image" %>
 <% end %>
-
 </div>
-
 <h4> Timeline </h4>
 <ul>
-  <%= render current_user.timeline  %>
+  <%= paginate @timeline %>
+  <%= render @timeline  %>
 </ul>

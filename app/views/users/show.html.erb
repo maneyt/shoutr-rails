@@ -1,5 +1,6 @@
 <p> <%= @user.email %> </p>
 <%= render "users/follow_buttons", user: @user %>
 <h3> Shouts </h3>
+<div> <%= paginate @shouts %> </div>
 
-<%= render @shouts.reverse %>
+<div><%= render @shouts %></div>
