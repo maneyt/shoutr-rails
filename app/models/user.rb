@@ -25,13 +25,7 @@ class User < ActiveRecord::Base
     followed_users.destroy(other_user)
   end
 
-  def followed_shouts
-    shouts = []
-    followed_users.each do |user|
-      user.shouts.each do |shout|
-        shouts << shout
-      end
-    end
-    shouts.sort_by {|shout| shout.created_at }
+  def timeline
+    Shout.where(user_id: followed_user_ids).order(created_at: :desc)
   end
 end
